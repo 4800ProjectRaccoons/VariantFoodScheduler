@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home page</title>
+    </head>
+    <body>
+        <h1>Home Page!</h1>
+            <script type="text/javascript">
+                document.write("https://postman-echo.com/get?name=andrew&id=1504844")
+                let response = fetch(
+                "https://postman-echo.com/get?name=andrew&id=1504844")
+                .then((response) => document.write(response.text())
+)                .then((response) => document.write(response.events[0].title))
+                .then((response) => {
+                document.getElementById("response").innerHTML = response.events[0].title;
+                });
+            </script>
+            
+    </body>
+</html>

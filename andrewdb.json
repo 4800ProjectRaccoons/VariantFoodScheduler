@@ -1,0 +1,17 @@
+{
+	"users": [
+			{
+			"firstName": "Andrew",
+			"lastName": "Nguyen",
+			"id":1504844
+			}
+	],
+	"games": [
+			{
+			"id": 1,
+			"name": "Blue Archive"
+			}
+			
+	]
+
+}
