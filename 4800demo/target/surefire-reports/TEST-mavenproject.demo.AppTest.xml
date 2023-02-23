@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="mavenproject.demo.AppTest" time="0.017" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="F:\$$$WindowsDownloads_Images\Documents\cs 4800\variantfoodscheduler\4800demo\target\test-classes;F:\$$$WindowsDownloads_Images\Documents\cs 4800\variantfoodscheduler\4800demo\target\classes;C:\Users\Axew\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Axew\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Axew\.m2\repository\org\jsoup\jsoup\1.15.4\jsoup-1.15.4.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="America/Los_Angeles"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jre1.8.0_281\bin"/>
+    <property name="sun.java.command" value="C:\Users\Axew\AppData\Local\Temp\surefire5952851566316706593\surefirebooter4442961631144244733.jar C:\Users\Axew\AppData\Local\Temp\surefire5952851566316706593 2023-02-23T02-47-28_483-jvmRun1 surefire3470904962698715593tmp surefire_0556423913304752897tmp"/>
+    <property name="surefire.test.class.path" value="F:\$$$WindowsDownloads_Images\Documents\cs 4800\variantfoodscheduler\4800demo\target\test-classes;F:\$$$WindowsDownloads_Images\Documents\cs 4800\variantfoodscheduler\4800demo\target\classes;C:\Users\Axew\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Axew\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Axew\.m2\repository\org\jsoup\jsoup\1.15.4\jsoup-1.15.4.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Axew"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="C:\Program Files\Java\jre1.8.0_281"/>
+    <property name="basedir" value="F:\$$$WindowsDownloads_Images\Documents\cs 4800\variantfoodscheduler\4800demo"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\Axew\AppData\Local\Temp\surefire5952851566316706593\surefirebooter4442961631144244733.jar"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jre1.8.0_281\lib\resources.jar;C:\Program Files\Java\jre1.8.0_281\lib\rt.jar;C:\Program Files\Java\jre1.8.0_281\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_281\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_281\lib\jce.jar;C:\Program Files\Java\jre1.8.0_281\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_281\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_281\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_281-b09"/>
+    <property name="user.name" value="Axew"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jre1.8.0_281\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Axew\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Axew\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_281"/>
+    <property name="user.dir" value="F:\$$$WindowsDownloads_Images\Documents\cs 4800\variantfoodscheduler\4800demo"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jre1.8.0_281\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\Axew\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Axew\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\DTS\Binn;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Users\Andrew Nguyen\AppData\Local\Programs\Python\Python39\Scripts;F:\Program Files\Node;F:\$$$WindowsDownloads_Images\Documents\CS 4800\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin;F:\Program Files\Ruby31-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\Axew\AppData\Local\Programs\Python\Python39;C:\Users\Axew\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\Axew\AppData\Local\GitHubDesktop\bin;C:\Program Files\Azure Data Studio\bin;F:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Axew\Anaconda; C;C:\Program Files\Git\Users\Axew\Anaconda3\Scripts; C;C:\Program Files\Git\Users\Axew\Anaconda3\Lib;.;C:\Users\Axew\Anaconda3\Library\bi; C;C:\Program Files\Git\Users\Axew\Anaconda3\Library\mingw-w64\bin;.;C:\Users\Axew\AppData\Local\Continuum\anaconda2\Scripts;F:\$$$WindowsDownloads_Images\Documents\CS 4700\test;C:\Users\Axew\Desktop\apk;C:\Users\Axew\Desktop;C:\Users\Axew\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.281-b09"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jre1.8.0_281\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="shouldAnswerWithTrue" classname="mavenproject.demo.AppTest" time="0.001"/>
+</testsuite>
