@@ -1,7 +1,3 @@
-from flask import Flask, redirect, url_for, render_template
-
-app = Flask(__name__)
-
 import random
 import requests
 
@@ -22,21 +18,9 @@ id = str(datastore['id'])
 urlFoodIngredients = "https://api.spoonacular.com/recipes/" + id + "/ingredientWidget.json"
 query_params_ingredients = "apiKey=" + spoonacular_api_key
 query_ingredients = urlFoodIngredients + "?" + query_params_ingredients
-#spoonacular_response = requests.get(query_ingredients)
-#ingredient_information = spoonacular_response.json()
+spoonacular_response = requests.get(query_ingredients)
+ingredient_information = spoonacular_response.json()
 
-print(id + " /" + datastore['title'] + "/ " +  datastore['image'] + " Calories: " + str(datastore['calories']))
-#print(ingredient_information)
+print(id + " /" + datastore['title'] + "/ " +  datastore['image'] + " Calories: " + str(datastore['calories']) + "\n\n")
+print(ingredient_information)
 
-@app.route("/")
-@app.route("/home")
-def home():
-    return "Hello world"
-
-@app.route("/result")
-def result():
-    food = id + " /" + datastore['title'] + "/ " +  datastore['image'] + " Calories: " + str(datastore['calories'])
-    return food
-
-if __name__ == "__main__":
-    app.run(debug= True, port=5001)
