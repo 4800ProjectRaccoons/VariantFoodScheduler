@@ -22,5 +22,7 @@ spoonacular_response = requests.get(query_ingredients)
 ingredient_information = spoonacular_response.json()
 
 print(id + " /" + datastore['title'] + "/ " +  datastore['image'] + " Calories: " + str(datastore['calories']) + "\n\n")
-print(ingredient_information)
+for ingr in ingredient_information['ingredients']:
+    print(ingr['name'])
 
+#print([ingredient_information])
