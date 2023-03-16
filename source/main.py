@@ -28,6 +28,10 @@ class FoodTest(unittest.TestCase):
     def test5(self):
         print("Beginning test 5...")
         self.assertIsInstance(self.foo.getFoodId(), str)
+
+    def test6(self):
+        print("Beginning test 6...")
+        self.assertEqual(self.foo.getFoodId().isdigit(), True)
     
 if __name__ == "__main__":
     unittest.main()
