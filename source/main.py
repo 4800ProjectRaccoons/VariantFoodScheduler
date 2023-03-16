@@ -4,7 +4,7 @@ from script import *
 class FoodTest(unittest.TestCase):
     def setUp(self):
         print('Preparing for testing...')
-        self.foo = FoodRecipes()
+        self.foo = FoodRecipes(1000)
 
     def tearDown(self):
         print('Finishing and cleaning up the test...\n')
@@ -25,5 +25,9 @@ class FoodTest(unittest.TestCase):
         print("Beginning test 4...")
         self.assertNotEqual(self.foo.setCalorieRange(), 950)
 
+    def test5(self):
+        print("Beginning test 5...")
+        self.assertIsInstance(self.foo.getFoodId(), str)
+    
 if __name__ == "__main__":
     unittest.main()
