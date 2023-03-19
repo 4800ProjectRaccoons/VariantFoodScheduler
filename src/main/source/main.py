@@ -1,5 +1,5 @@
 from script import *
-from flask import Flask
+from flask import Flask, redirect,url_for,render_template
 import json
 from flask_cors import CORS
 
@@ -8,7 +8,7 @@ CORS(app)
 
 @app.route("/")
 def homepage():
-  return "<h1>Hello World</h1>"
+  return render_template("index.html")
 
 @app.route("/randomize/<calories>")
 def randomize(calories):
