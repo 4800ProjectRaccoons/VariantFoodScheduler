@@ -6,6 +6,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/")
+def homepage():
+  return "<h1>Hello World</h1>"
+
 @app.route("/randomize/<calories>")
 def randomize(calories):
   calories = float(calories)
