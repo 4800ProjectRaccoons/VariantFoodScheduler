@@ -14,4 +14,4 @@ def randomize(calories):
   res.append(food.datastore)
   return json.dumps(res)
 
-app.run(host = "0.0.0.0")
+app.run(host = "0.0.0.0", port = 8080)
