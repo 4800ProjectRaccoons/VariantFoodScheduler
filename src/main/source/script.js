@@ -6,7 +6,8 @@ function getFood() {
   
     // call the search server and get the result
     $.ajax({
-      url: "http://127.0.0.1:5000/randomize/" + input,
+      //url: "http://127.0.0.1:5000/randomize/" + input,
+      url: "http://ec2-user@ec2-3-128-204-114.us-east-2.compute.amazonaws.com/randomize/" + input,
       success: function(res) {
         console.log(res);
   
