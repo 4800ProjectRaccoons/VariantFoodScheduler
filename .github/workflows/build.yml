@@ -36,7 +36,7 @@ jobs:
         host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
         username: ec2-user
         port: 8080
-        key: ${{ secrets.KEY }}
+        ssh-private-key: ${{ secrets.KEY }}
         source: "src/main/source/main.py"
         target: "~/"
 #testtc
