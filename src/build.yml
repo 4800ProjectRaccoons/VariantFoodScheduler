@@ -47,8 +47,6 @@ jobs:
         username: ec2-user
         key: ${{ secrets.KEY }}
         port: 22
-        source: "src/main/source/main.py"
-        target: "~/"
         script: |
           killall python
           nohup python main.py > log.txt &
