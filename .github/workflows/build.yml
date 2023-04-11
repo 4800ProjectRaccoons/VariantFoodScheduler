@@ -39,7 +39,7 @@ jobs:
         key: ${{ secrets.KEY }}
         source: "src/main/source/main.py"
         target: "~/"
-#testtct
+#testtctas
     - name: Run commands to start the Python server
       uses: appleboy/ssh-action@v0.1.9
       with:
