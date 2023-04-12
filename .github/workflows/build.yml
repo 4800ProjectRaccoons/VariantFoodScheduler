@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Set up Python 3.9.16
       uses: actions/setup-python@v1
       with:
@@ -29,23 +29,13 @@ jobs:
     - name: Install Dependencies
       run: pip install -r requirements.txt
 
-
-    - name: Copy Python file to EC2 via SSH Key
-      uses: appleboy/scp-action@master
-      with:
-        host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
-        username: ec2-user
-        port: 8080
-        key: ${{ secrets.KEY2 }}
-        source: "src/main/source/main.py"
-        target: "~/"
 #testt
     - name: Run commands to start the Python server
       uses: appleboy/ssh-action@v0.1.9
       with:
         host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
         username: ec2-user
-        key: ${{ secrets.KEY2 }}
+        key: ${{ secrets.KEY }}
         port: 8080
         source: "src/main/source/main.py"
         target: "~/"
