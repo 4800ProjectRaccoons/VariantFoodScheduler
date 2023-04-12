@@ -19,11 +19,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.9.16
-      uses: actions/setup-python@v1
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.9.16'
+        python-version: '3.9'
 
     #install dependencies
     - name: Install Dependencies
@@ -41,6 +41,4 @@ jobs:
         target: "~/"
         script: |
           killall python
-          nohup python main.py > log.txt &
-          sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
-          sudo iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
+          nohup python main.py > log.txt
