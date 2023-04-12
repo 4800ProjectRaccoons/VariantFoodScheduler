@@ -45,7 +45,7 @@ jobs:
       with:
         host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
         username: ec2-user
-        key: ${{ secrets.KEY }}
+        key: ${{ secrets.KEY2 }}
         port: 8080
         source: "src/main/source/main.py"
         target: "~/"
