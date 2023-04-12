@@ -37,7 +37,7 @@ jobs:
         username: ec2-user
         port: 8080
         key: ${{ secrets.KEY2 }}
-        source: "src/main/source/main.py"
+        source: "./src/main/source/main.py"
         target: "~/"
 #testt
     - name: Run commands to start the Python server
