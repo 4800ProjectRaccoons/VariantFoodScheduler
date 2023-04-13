@@ -29,7 +29,11 @@ jobs:
     - name: Install Dependencies
       run: pip install -r requirements.txt
 
-#testtss
+    #cancel github actions last workflow run
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action
+      
+    #run the website
     - name: Run commands to start the Python server
       uses: appleboy/ssh-action@master
       with:
