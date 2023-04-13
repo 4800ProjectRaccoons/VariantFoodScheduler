@@ -35,7 +35,7 @@ jobs:
       with:
         host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
         username: ec2-user
-        port: 8080
+        port: 22
         key: ${{ secrets.KEY2 }}
         source: "src/main/source/main.py"
         target: "~/"
@@ -46,7 +46,7 @@ jobs:
         host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
         username: ec2-user
         key: ${{ secrets.KEY2 }}
-        port: 8080
+        port: 22
         source: "src/main/source/main.py"
         target: "~/"
         script: |
