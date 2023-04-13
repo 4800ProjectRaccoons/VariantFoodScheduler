@@ -38,6 +38,6 @@ jobs:
         key: ${{ secrets.KEY3 }}
         port: 22
         script: |
-
+          cd VariantFoodScheduler/src/main/source
           killall python
           nohup python main.py > log.txt
