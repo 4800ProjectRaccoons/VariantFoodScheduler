@@ -1,10 +1,13 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+# This workflow will set up a Python environment and install any required dependencies to improve the workflow execution time
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
+
+# Due to using Python as the programming language for the project, 
+# the set-up below will have some differences with the sample 
+# code provided by the professor
 
 name: Python CI
 on:
@@ -19,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    #set up Python prgram
     - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -39,7 +43,13 @@ jobs:
         port: 22
         script: |
           killall python
+  # As Python does not have a package manager like Maven in Java, we need 
+  # to copy all necessary files from Github by using git pull 
+  # (main.py, index.html, index.css, etc)
           cd VariantFoodScheduler
           git pull
           cd src/main/source
           nohup python main.py > log.txt &
+  # As the server using Python Flask waits for user-input (Ctrl - C) to stop running, 
+  # the build will literally need to wait for a time-out of 10 minutes 
+  # before the build can complete its workflow and refresh automatically.
