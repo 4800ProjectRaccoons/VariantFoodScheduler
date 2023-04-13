@@ -38,5 +38,4 @@ jobs:
         key: ${{ secrets.KEY }}
         port: 8080
         script: |
-          killall python
-          nohup python main.py > log.txt
+          whoami
