@@ -42,4 +42,4 @@ jobs:
           cd VariantFoodScheduler
           git pull
           cd src/main/source
-          nohup python main.py > log.txt
+          nohup python main.py > log.txt &
