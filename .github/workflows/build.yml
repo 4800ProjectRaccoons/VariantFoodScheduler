@@ -35,8 +35,7 @@ jobs:
       with:
         host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
         username: ec2-user
-        password: ''
-        #key: ${{ secrets.KEY3 }}
+        key: ${{ secrets.KEY3 }}
         port: 8080
         script: |
           killall python
