@@ -29,7 +29,7 @@ jobs:
     - name: Install Dependencies
       run: pip install -r requirements.txt
 
-#testts
+#testtss
     - name: Run commands to start the Python server
       uses: appleboy/ssh-action@master
       with:
