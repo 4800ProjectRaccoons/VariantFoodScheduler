@@ -36,7 +36,8 @@ jobs:
         host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
         username: ec2-user
         key: ${{ secrets.KEY3 }}
-        port: 8080
+        port: 22
         script: |
+
           killall python
           nohup python main.py > log.txt
