@@ -31,7 +31,7 @@ jobs:
 
 #testt
     - name: Run commands to start the Python server
-      uses: appleboy/ssh-action@v0.1.9
+      uses: appleboy/ssh-action@master
       with:
         host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
         username: ec2-user
