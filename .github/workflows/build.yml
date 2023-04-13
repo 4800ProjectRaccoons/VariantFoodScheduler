@@ -9,9 +9,9 @@
 name: Python CI
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -20,36 +20,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.9.16
-      uses: actions/setup-python@v1
+    - name: Set up Python
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.9.16'
+        python-version: '3.9'
 
     #install dependencies
     - name: Install Dependencies
       run: pip install -r requirements.txt
 
-
-    - name: Copy Python file to EC2 via SSH Key
-      uses: appleboy/scp-action@master
-      with:
-        host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
-        username: ec2-user
-        port: 22
-        key: ${{ secrets.KEY }}
-        source: "src/main/source/main.py"
-        target: "~/"
-#testtTTTT
+#testts
     - name: Run commands to start the Python server
-      uses: appleboy/ssh-action@v0.1.9
+      uses: appleboy/ssh-action@master
       with:
         host: ec2-3-128-204-114.us-east-2.compute.amazonaws.com
         username: ec2-user
-        key: ${{ secrets.KEY }}
+        key: ${{ secrets.KEY3 }}
         port: 22
-        source: "src/main/source/main.py"
-        target: "~/"
         script: |
+          cd VariantFoodScheduler/src/main/source
           killall python
           nohup python main.py > log.txt &
           sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
