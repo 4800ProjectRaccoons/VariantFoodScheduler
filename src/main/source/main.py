@@ -2,9 +2,10 @@ from script import *
 from flask import Flask, redirect,url_for,render_template
 import json
 from flask_cors import CORS
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
-CORS(app)
+Bootstrap(app)
 
 @app.route("/")
 def homepage():

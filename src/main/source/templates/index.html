@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
         <title>The Variant Food Scheduler</title>     
         <meta name="description" content="Variant Food Scheduler automatically creates custom meal plans for your diet goals.">      
         <meta name="author" content="The Raccoons">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
-        <link href="../../../html_frontend/VariantFoodScheduler_files/css_libs1.0.2424.css" rel="stylesheet" type="text/css">
-        <link href="../../../html_frontend/VariantFoodScheduler_files/css" rel="stylesheet">
-        <link href="../../../html_frontend/VariantFoodScheduler_files/etm1.0.2424.css" rel="stylesheet">
+        <link href="../static\js\styles\css_libs1.0.2424.css" rel="stylesheet" type="text/css">
+        <link href="../static\js\styles\css" rel="stylesheet">
+        <link href="../static\js\styles\etm1.0.2424.css" rel="stylesheet">
         <style type="text/css"></style><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
 </head>
 
 <body>
-<<<<<<< Updated upstream
-  <h1>Variant Food Generator BLAH BLAH</h1>
-  <p>Calories limit per meal</p>
-  <input id="cal_input" type="text"></input>
-  <button onclick="getFood()">Randomize</button>
-=======
- <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="../static\js\script.js"></script>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
         <symbol id="icon-broccoli-16" viewBox="0 0 16 16">
@@ -633,7 +628,6 @@
         <use xlink:href="#icon-vegetarian-food-80" width="24" height="24" x="123" y="153"/>
         </g> -->
     </svg>
->>>>>>> Stashed changes
 
 <div class="body-container" style="">
         
@@ -719,6 +713,7 @@
                         </li>
                     </ul>
                 </div>
+                <!-- <script src="../static\js\script.js"></script>    -->
                 <div class="row form-group small_top_spacer">
                     <div class="col-12 col-md-4 offset-md-4 offset-lg-5">
                         <button onclick="getFood()" data-loading-text="Generate">
@@ -732,11 +727,11 @@
                         My goal:
                     </label>
                     <div class="col-12 col-sm-9 col-md-6 col-lg-6 col-xl-5">
-                        <input type="number" min="0" max="20000" step="100" placeholder="???" value="" class="form-control calorie-input text-md-right" id="cal_input">
+                        <input type="text" min="0" max="20000" step="100" placeholder="???" value="" class="form-control calorie-input text-md-right" id="cal_input">
                         <label for="cal_input" id="cal-input-label">Calories</label>
                     </div>
                 </div>
-
+                
                 <div class="row form-group">
                     <label for="num_meals_selector" class="col-12 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label">
                         Dietary pattern:
@@ -758,9 +753,6 @@
                         </select>
                     </div>
                 </div>
-
-
-                
             </div>
         </div>
 
@@ -806,8 +798,16 @@
     </div>
 </div>
 
+
 </div><div class="meal_box meal_container row">
 <div class="meal_blocking_overlay"></div>
+<div class="col-12 col-md-4 offset-md-4 offset-lg-5">
+    <table id="result_table" descript>
+      <tr><th>Name </th><th>Calories</th></tr>
+      <tr>
+      </tr>
+    </table>
+  </div>
 <div class="col-12 meal_header align-items-center">
     <div class="row">
         <div class="col-auto">
