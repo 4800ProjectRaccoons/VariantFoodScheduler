@@ -47,7 +47,7 @@ jobs:
         script: |
           killall python
           cd VariantFoodScheduler
-          git checkout -b testing
+          git branch --set-upstream-to=origin/main testing
           git pull
           cd src/main/source
           nohup python main.py > log.txt &
