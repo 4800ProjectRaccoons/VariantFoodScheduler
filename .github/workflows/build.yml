@@ -47,7 +47,8 @@ jobs:
         script: |
           killall python
           cd VariantFoodScheduler
-          git checkout -b main
+          git add * 
+          git stash
           git pull
           cd src/main/source
           nohup python main.py > log.txt &
