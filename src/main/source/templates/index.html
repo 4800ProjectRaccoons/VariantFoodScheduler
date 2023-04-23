@@ -634,13 +634,12 @@
     <div id="top_nav" class="navbar navbar-expand-md navbar-purple">
         <div class="container">
             <div id="ETM_navbar" class="navbar-collapse collapse">
-                <ul class="navbar-nav justify-content-md-center col-md">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.eatthismuch.com/food/browse/?type=recipe">Browse Foods</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.eatthismuch.com/diet-plan/">Supported Diets</a>
-                    </li>                                
+                <ul class="navbar-nav justify-content-md-center col-md"> 
+                    <div class="col-12 text-center">
+                        <h1 class="display-5" style="font-size:1.25rem; color:orange;">                
+                                Are you tired of eating the same food throughout the week?                
+                        </h1>
+                    </div>              
                 </ul>
                     <form class="form text-center no-gutters">
                         <div class="col-auto ">
@@ -667,8 +666,7 @@
             Variant Food Scheduler creates personalized meal plans throughout a day
             based on your food preferences. <br><br>
             <strong>Just choose your meal of the day and input your calorie goal together with your dietary 
-                pattern. <br><br>
-                You will get your meal plan and shopping list right here in seconds!</strong>
+                pattern. You will get your meal plan and shopping list right here in seconds!</strong>
         </div>
 
 
@@ -679,62 +677,84 @@
                 Ready? Please provide us your diet.
             </div>
             <div class="generator_header col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                <div class="preset_selector_div">
 
-                    <ul class="nav nav-pills preset_selector no-gutters text-center">
-                        <li class="nav-item col-4 col-sm-2">
-                        </li>
-
-                        <li class="nav-item col-4 col-sm-2" data-value="breakfast">
-
-                            <a class="nav-link" href="javascript:void(0);">
-                                <svg class="etm-diet-icon">
-                                    <use xlink:href="#icon-sandwich-40"></use>
-                                </svg>
-                                Breakfast
-                            </a>
-                        </li>
-                        <li class="nav-item col-4 col-sm-2" data-value="lunch" >
-
-                            <a class="nav-link" href="javascript:void(0);">
-                                <svg class="etm-diet-icon">
-                                    <use xlink:href="#icon-paleo-diet-40"></use>
-                                </svg>
-                                Lunch
-                            </a>
-                        </li>
-                        <li class="nav-item col-4 col-sm-2" data-value="dinner">
-
-                            <a class="nav-link" href="javascript:void(0);">
-                                <svg class="etm-diet-icon">
-                                    <use xlink:href="#icon-broccoli-40"></use>
-                                </svg>
-                                Dinner</a>
-                        </li>
-                    </ul>
-                </div>
                 <!-- <script src="../static\js\script.js"></script>    -->
                 <div class="row form-group small_top_spacer">
                     <div class="col-12 col-md-4 offset-md-4 offset-lg-5">
-                        <button onclick="getFood()" data-loading-text="Generate">
+                        <button type="button" class="btn btn-lg btn-block btn-orange gen_button"
+                        onclick="getFood()" data-loading-text="Randomize Food">
                             Randomize Food
                         </button>
                     </div>
                 </div>
 
                 <div class="row form-group small_top_spacer">
-                    <label class="col-12 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input">
-                        My goal:
+                    <label class="col-12 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input" 
+                    style="font-size:1rem; color:blue;">
+                        Set your calorie input for each meal?</label>
                     </label>
                     <div class="col-12 col-sm-9 col-md-6 col-lg-6 col-xl-5">
-                        <input type="text" min="0" max="20000" step="100" placeholder="???" value="" class="form-control calorie-input text-md-right" id="cal_input">
-                        <label for="cal_input" id="cal-input-label">Calories</label>
+                        <input type="checkbox" value="Calories" id="cal_input">
+                        <label for="cal_input" id="cal-input-label">Calories Control</label>
                     </div>
                 </div>
-                
+                <div class="preset_selector_div">
+
+                    <ul class="nav nav-pills preset_selector no-gutters text-center">
+                        <li class="nav-item col-4 col-sm-2" data-value="anything">
+
+                            <a class="nav-link" href="javascript:void(0);">
+                 
+                            </a>
+                        </li>
+                        <li class="nav-item col-4 col-sm-2" data-value="paleo">
+
+                            <a class="nav-link">
+                                <svg class="etm-diet-icon">
+                                    <use xlink:href="#icon-paleo-diet-40"></use>
+                                </svg>
+                                Paleo
+                            </a>
+                        </li>
+                        <li class="nav-item col-4 col-sm-2" data-value="vegetarian">
+
+                            <a class="nav-link">
+                                <svg class="etm-diet-icon">
+                                    <use xlink:href="#icon-broccoli-40"></use>
+                                </svg>
+                                Vegetarian</a>
+                        </li>
+                        <li class="nav-item col-4 col-sm-2" data-value="vegan">
+
+                            <a class="nav-link">
+                                <svg class="etm-diet-icon">
+                                    <use xlink:href="#icon-vegan-symbol-40"></use>
+                                </svg>
+                                Vegan</a>
+                        </li>
+                        <li class="nav-item col-4 col-sm-2" data-value="atkins / ketogenic">
+
+                            <a class="nav-link">
+                                <svg class="etm-diet-icon">
+                                    <use xlink:href="#icon-no-gluten-40"></use>
+                                </svg>
+                                Ketogenic</a>
+                        </li>
+                        <li class="nav-item col-4 col-sm-2" data-value="mediterranean">
+
+                            <a class="nav-link">
+                                <svg class="etm-diet-icon">
+                                    <use xlink:href="#icon-olive-40"></use>
+                                </svg>
+                                Mediterranean</a>
+                        </li>
+                    </ul>
+
+   
+                </div>
                 <div class="row form-group">
                     <label for="num_meals_selector" class="col-12 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label">
-                        Dietary pattern:
+                        <b>Dietary pattern:</b>
                     </label>
                     <div class="col-12 col-sm-9 col-md-6 col-lg-6 col-xl-5">
                         <select class="form-control num_meals_selector" id="num_meals_selector">
