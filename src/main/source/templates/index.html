@@ -12,7 +12,27 @@
         <link href="../static\js\styles\css" rel="stylesheet">
         <link href="../static\js\styles\etm1.0.2424.css" rel="stylesheet">
         <style type="text/css"></style><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
-</head>
+        <style>
+            .containerX {
+              display: grid;
+              grid-template-columns: 400px 400px 400px;
+              text-align: center;
+              
+              
+            }
+            .columnX {
+              padding: 16px;
+              height: 300px;
+              margin: 5px;
+              background: #FFFFFF;
+    /* card bg: */
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+                border-radius: 5px;
+                transition: box-shadow 0.3s ease-in-out;
+            }
+            
+        </style>
+    </head>
 
 <body>
     <script src="../static\js\script.js"></script>
@@ -677,10 +697,12 @@
                 Ready? Please provide us your diet.
             </div>
             <div class="generator_header col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                <div class="row form-group small_top_spacer">
+                </div>
 
                 <!-- <script src="../static\js\script.js"></script>    -->
                 <div class="row form-group small_top_spacer">
-                    <div class="col-12 col-md-4 offset-md-4 offset-lg-5">
+                    <div class="col-12 col-md-4 offset-md-4 offset-lg-4">
                         <button type="button" class="btn btn-lg btn-block btn-orange gen_button"
                         onclick="getFood()" data-loading-text="Randomize Food">
                             Randomize Food
@@ -689,19 +711,52 @@
                 </div>
 
                 <div class="row form-group small_top_spacer">
-                    <label class="col-12 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input" 
-                    style="font-size:1rem; color:blue;">
-                        Set your calorie input for each meal?</label>
+                    <label class="col-12 offset-lg-2 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input" 
+                    style="font-size:1rem; color:rgb(155, 122, 55);">
+                        Wanna set calorie input of the meal?
+                    
                     </label>
                     <div class="col-12 col-sm-9 col-md-6 col-lg-6 col-xl-5">
-                        <input type="checkbox" value="Calories" id="cal_input">
-                        <label for="cal_input" id="cal-input-label">Calories Control</label>
+                        <input type="checkbox" value="Calories" id="cal_input"> Calories Control
                     </div>
                 </div>
+
+                <div class="row">
+                    <label class="col-12 offset-lg-0 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input" 
+                    style="font-size:1rem; color:rgb(211, 156, 56);">
+                        Breakfast</label>
+                    </label>
+                    <div class="col-12 col-sm-9 col-md-6 col-lg-6 col-xl-5 col-lg-3">
+                        <input type="text" min="0" max="20000" placeholder="???" value="" class="form-control calorie-input text-md-right" id="cal_input1">
+                        <label for="cal_input1" id="cal-input-label1">Calories</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-12 offset-lg-0 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input" 
+                    style="font-size:1rem; color:rgb(186, 101, 105);">
+                        Lunch</label>
+                    </label>
+                    <div class="col-12 col-sm-9 col-md-6 col-lg-6 col-xl-5">
+                        <input type="text" min="0" max="20000" placeholder="???" value="" class="form-control calorie-input text-md-right" id="cal_input2">
+                        <label for="cal_input2" id="cal-input-label2">Calories</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-12 offset-lg-0 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input" 
+                    style="font-size:1rem; color:rgb(87, 163, 214);">
+                        Dinner</label>
+                    </label>
+                    <div class="col-10 col-sm-9 col-md-6 col-lg-6 col-xl-5">
+                        <input type="text" min="0" max="20000" placeholder="???" value="" class="form-control calorie-input text-md-right" id="cal_input3">
+                        <label for="cal_input3" id="cal-input-label3">Calories</label>
+                    </div>
+                </div>
+                
+      
                 <div class="preset_selector_div">
 
                     <ul class="nav nav-pills preset_selector no-gutters text-center">
-                        <li class="nav-item col-4 col-sm-2" data-value="anything">
+                        <li class="nav-item col-4 col-sm-1" data-value="anything">
 
                             <a class="nav-link" href="javascript:void(0);">
                  
@@ -776,6 +831,43 @@
             </div>
         </div>
 
+        <div class="row form-group small_top_spacer">
+        </div>
+
+        <div class="containerX">
+            <div class="columnX ">
+                <div class="text-orange text-medium-old">
+                    Breakfast
+                    
+                </div>
+
+                    
+                
+                <div class="text-medium-old">                 
+
+                    Breakfast meals
+                </div>
+            </div>
+            <div class="columnX">
+                <div class="text-orange text-medium-old">
+                    Lunch
+                </div>
+                <div class="text-medium-old">
+                    Lunch meals
+                </div>
+            </div>
+            <div class="columnX">
+                <div class="text-orange text-medium-old">
+                    Dinner
+                </div>
+                <div class="text-medium-old">
+                    Dinner meals
+                </div>
+            </div>
+         </div>
+
+             
+  
         <div class="auto_generator_div" style="display: none">
             <div class="row form-group loading-text">
                 <div class="col-12">
