@@ -1,4 +1,6 @@
-function getFood() {
+async function getFood() {
+    var api_key='1860d9cb5fb5432d894efb7ec63f484b';
+    
     console.log("Searching for food");
     // grab input value
 
@@ -26,10 +28,17 @@ function getFood() {
 
         // image link
         var food_img = "https://spoonacular.com/recipeImages/" + food[0]["id"] + "-" + "556x370" + ".jpg";
-
+        
+        //ingredients
+        var ingr = "https://api.spoonacular.com/recipes/" + food[0]["id"] + "/ingredientWidget.json" + "?apiKey=" + api_key;
+        fetch(ingr)
+        .then(response => response.json())
+        .then(json => setIngr(json))
+        
         console.log(food_title);
         console.log(food_calories);
         console.log(food_img);
+        
 
         // var row_html_str = "<tr><td>" + food_title + "</td><td>" + food_calories + "</td></tr>"
         // $('#result_table').append(row_html_str);
@@ -47,3 +56,16 @@ function getFood() {
       }
     });
   }
+
+  //set ingredients of json object
+  async function setIngr(json) {
+    console.log(JSON.stringify(json));
+    let ingredient_list = "";
+    for (let i = 0; i < json['ingredients'].length; i++)
+    {
+      let obj = json['ingredients'];
+      ingredient_list += obj[i]['name'] + "\n";
+      console.log(obj[i]['name']);
+    }
+    document.getElementById("breakfastIngr").textContent = ingredient_list;
+}

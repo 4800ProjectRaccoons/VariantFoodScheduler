@@ -47,8 +47,7 @@ jobs:
         script: |
           killall python
           cd VariantFoodScheduler
-          git add * 
-          git stash
+          # pip install flask-bootstrap
           git pull
           cd src/main/source
           nohup python main.py > log.txt &
