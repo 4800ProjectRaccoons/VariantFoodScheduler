@@ -11,12 +11,18 @@ Bootstrap(app)
 def homepage():
   return render_template("index.html")
 
-@app.route("/randomize/<calories>")
-def randomize(calories):
-  calories = float(calories)
-  food = FoodRecipes(calories)
+@app.route("/randomize/<calories1>/<calories2>/<calories3>")
+def randomize(calories1, calories2, calories3):
+  calories1 = float(calories1)
+  calories2 = float(calories2)
+  calories3 = float(calories3)
+  food1 = FoodRecipes(calories1)
+  food2 = FoodRecipes(calories2)
+  food3 = FoodRecipes(calories3)
   res = []
-  res.append(food.datastore)
+  res.append(food1.datastore)
+  res.append(food2.datastore)
+  res.append(food3.datastore)
   return json.dumps(res)
 
 app.run(host = "0.0.0.0", port = 8080)

@@ -12,22 +12,25 @@ async function getFood() {
   
     // call the search server and get the result
     $.ajax({
-      //url: "http://127.0.0.1:8080/randomize/" + input1,
-      url: "http://ec2-3-128-204-114.us-east-2.compute.amazonaws.com:8080/randomize/" + input1,
+      //url: "http://127.0.0.1:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
+      url: "http://ec2-3-128-204-114.us-east-2.compute.amazonaws.com:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
       success: function(res) {
         console.log(res);
-  
-        $("#result_table").empty();
-        $("#result_table").append("<tr> <th>Name</th><th>Calories</th></tr>");
         
-        console.log("parsing...")
         var food = JSON.parse(res);
 
-        var food_title = food[0]["title"]
-        var food_calories = food[0]["calories"]
+        var breakfast_title = food[0]["title"];
+        var breakfast_cal = food[0]["calories"];
+        var breakfast_img = "https://spoonacular.com/recipeImages/" + food[0]["id"] + "-" + "556x370" + ".jpg";
 
-        // image link
-        var food_img = "https://spoonacular.com/recipeImages/" + food[0]["id"] + "-" + "556x370" + ".jpg";
+        var lunch_title = food[1]["title"];
+        var lunch_cal = food[1]["calories"];
+        var lunch_img = "https://spoonacular.com/recipeImages/" + food[1]["id"] + "-" + "556x370" + ".jpg";
+
+        var dinner_title = food[2]["title"];
+        var dinner_cal = food[2]["calories"];
+        var dinner_img = "https://spoonacular.com/recipeImages/" + food[2]["id"] + "-" + "556x370" + ".jpg";
+
         
         //ingredients
         var ingr = "https://api.spoonacular.com/recipes/" + food[0]["id"] + "/ingredientWidget.json" + "?apiKey=" + api_key;
@@ -35,18 +38,20 @@ async function getFood() {
         .then(response => response.json())
         .then(json => setIngr(json))
         
-        console.log(food_title);
-        console.log(food_calories);
-        console.log(food_img);
-        
-
-        // var row_html_str = "<tr><td>" + food_title + "</td><td>" + food_calories + "</td></tr>"
-        // $('#result_table').append(row_html_str);
-
-        document.getElementById("breakfastMeal").textContent = food_title;
-        document.getElementById("breakfastCal").textContent = food_calories;
-        document.getElementById("breakfastImg").src = food_img;
+        document.getElementById("breakfastMeal").textContent = breakfast_title;
+        document.getElementById("breakfastCal").textContent = breakfast_cal;
+        document.getElementById("breakfastImg").src = breakfast_img;
         document.getElementById("breakfastImg").style = "height: 200px; width: auto;";
+
+        document.getElementById("lunchMeal").textContent = lunch_title;
+        document.getElementById("lunchCal").textContent = lunch_cal;
+        document.getElementById("lunchImg").src = lunch_img;
+        document.getElementById("lunchImg").style = "height: 200px; width: auto;";
+
+        document.getElementById("dinnerMeal").textContent = dinner_title;
+        document.getElementById("dinnerCal").textContent = dinner_cal;
+        document.getElementById("dinnerImg").src = dinner_img;
+        document.getElementById("dinnerImg").style = "height: 200px; width: auto;";
 
         // render the result in the list
   
