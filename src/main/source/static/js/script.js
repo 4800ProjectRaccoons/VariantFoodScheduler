@@ -13,7 +13,7 @@ async function getFood() {
     // call the search server and get the result
     $.ajax({
       //url: "http://127.0.0.1:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
-      url: "http://ec2-3-128-204-114.us-east-2.compute.amazonaws.com/randomize/" + input1 + '/' + input2 + '/' + input3,
+      url: "http://ec2-3-128-204-114.us-east-2.compute.amazonaws.com:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
       success: function(res) {
         console.log(res);
         
