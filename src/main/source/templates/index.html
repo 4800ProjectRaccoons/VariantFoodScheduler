@@ -16,22 +16,26 @@
             .containerX {
               display: grid;
               grid-template-columns: 400px 400px 400px;
-              text-align: center;
-              
-              
+              text-align: center;      
             }
             .columnX {
               padding: 16px;
               height: 300px;
               margin: 5px;
-              background: #FFFFFF;
+              backdrop-filter: blur(14px);
+            background-color: rgba(255, 255, 255, 0.4);
     /* card bg: */
                 box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
                 border-radius: 5px;
                 transition: box-shadow 0.3s ease-in-out;
-            }
-            
+            }            
         </style>
+        <style>
+            body {
+              background-image: url("food.jpg");
+              background-size: cover;
+            }
+            </style>
     </head>
 
 <body>
@@ -689,7 +693,6 @@
                 pattern. You will get your meal plan and shopping list right here in seconds!</strong>
         </div>
 
-
     <div class="home_generator_box container">
 
         <div class="row generator_header_div">
@@ -845,10 +848,7 @@
                 
                 <div class="text-medium-old">                 
 
-                    <text id="breakfastMeal">Breakfast meals</text>
-                    <text id="breakfastCal">Calories</text>
-                    <img id="breakfastImg">
-                    <text id="breakfastIngr">Ingredients</text>
+                    Breakfast meals
                 </div>
             </div>
             <div class="columnX">
@@ -856,10 +856,7 @@
                     Lunch
                 </div>
                 <div class="text-medium-old">
-                    <text id="lunchMeal">Lunch meals</text>
-                    <text id="lunchCal">Calories</text>
-                    <img id="lunchImg">
-                    <text id="lunchIngr">Ingredients</text>
+                    Lunch meals
                 </div>
             </div>
             <div class="columnX">
@@ -867,10 +864,7 @@
                     Dinner
                 </div>
                 <div class="text-medium-old">
-                    <text id="dinnerMeal">Dinner meals</text>
-                    <text id="dinnerCal">Calories</text>
-                    <img id="dinnerImg">
-                    <text id="dinnerIngr">Ingredients</text>
+                    Dinner meals
                 </div>
             </div>
          </div>
@@ -922,22 +916,22 @@
 
 </div><div class="meal_box meal_container row">
 <div class="meal_blocking_overlay"></div>
-<!-- <div class="col-12 col-md-4 offset-md-4 offset-lg-5">
+<div class="col-12 col-md-4 offset-md-4 offset-lg-5">
     <table id="result_table" descript>
       <tr><th>Name </th><th>Calories</th></tr>
       <tr>
       </tr>
     </table>
-  </div> -->
+  </div>
 <div class="col-12 meal_header align-items-center">
     <div class="row">
         <div class="col-auto">
             <div class="row">
-                <div class="col-auto text-dark-gray text-large text-strong print_meal_title wrap_or_truncate pr-0">Dinner</div>
+                <div class="col-auto text-dark-gray text-large text-strong print_meal_title wrap_or_truncate pr-0">         </div>
             </div>
             <div class="row">
                 <div class="col-auto meal_stats"><div>
-<span class="cal_amount text-small text-light-gray" data-original-title="" title="">0 Calories</span>
+<span class="cal_amount text-small text-light-gray" data-original-title="" title="">            </span>
 </div></div>
             </div>
 
@@ -984,7 +978,7 @@
 
 <div class="meal_content col-12">
     <div class="row meal_foods_row">
-        <ul class="meal_foods col-12 collection-list ui-sortable" tabindex="0"><li class="not-sortable" style="background: transparent; border: none; box-shadow: none;"><var class="empty-list-caption"><div class="row"><div class="col-12 text-light-gray text-small empty_meal_box"><div class="text-label text-strong pb-2">Empty Meal</div>Hit <i class="fa fa-refresh"></i> to generate, or search for foods to add and drag them in. <a style="font-size: 12px;display: block;" target="_blank" href="https://eatthismuch.groovehq.com/knowledge_base/topics/why-is-the-generator-leaving-some-of-my-meals-empty">Is the generator leaving this empty?</a></div></div></var></li></ul>
+        <ul class="meal_foods col-12 collection-list ui-sortable" tabindex="0"><li class="not-sortable" style="background: transparent; border: none; box-shadow: none;"><var class="empty-list-caption"><div class="row"><div class="col-12 text-light-gray text-small empty_meal_box"><div class="text-label text-strong pb-2"></div>                                                                                 <i class="fa fa-refresh"></i>                <a style="font-size: 12px;display: block;" target="_blank" href="https://eatthismuch.groovehq.com/knowledge_base/topics/why-is-the-generator-leaving-some-of-my-meals-empty">                                                                </a></div></div></var></li></ul>
     </div>
 </div>
 
@@ -996,11 +990,11 @@
     <div class="row">
         <div class="col-auto">
             <div class="row">
-                <div class="col-auto text-dark-gray text-large text-strong print_meal_title wrap_or_truncate pr-0">Snack</div>
+                <div class="col-auto text-dark-gray text-large text-strong print_meal_title wrap_or_truncate pr-0">          </div>
             </div>
             <div class="row">
                 <div class="col-auto meal_stats"><div>
-<span class="cal_amount text-small text-light-gray" data-original-title="" title="">0 Calories</span>
+<span class="cal_amount text-small text-light-gray" data-original-title="" title="">               </span>
 </div></div>
             </div>
         </div>
@@ -1041,8 +1035,4 @@
         </div>
     </div>
 </div>
-<div class="meal_content col-12">
-    <div class="row meal_foods_row">
-        <ul class="meal_foods col-12 collection-list ui-sortable" tabindex="0"><li class="not-sortable" style="background: transparent; border: none; box-shadow: none;"><var class="empty-list-caption"><div class="row"><div class="col-12 text-light-gray text-small empty_meal_box"><div class="text-label text-strong pb-2">Empty Meal</div>Hit <i class="fa fa-refresh"></i> to generate, or search for foods to add and drag them in. <a style="font-size: 12px;display: block;" target="_blank" href="https://eatthismuch.groovehq.com/knowledge_base/topics/why-is-the-generator-leaving-some-of-my-meals-empty">Is the generator leaving this empty?</a></div></div></var></li></ul>
-    </div>
-</div>
+
