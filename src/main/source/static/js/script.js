@@ -12,8 +12,8 @@ async function getFood() {
   
     // call the search server and get the result
     $.ajax({
-      //url: "http://127.0.0.1:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
-      url: "http://ec2-3-128-204-114.us-east-2.compute.amazonaws.com:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
+      url: "http://127.0.0.1:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
+      //url: "http://ec2-3-128-204-114.us-east-2.compute.amazonaws.com:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
       success: function(res) {
         console.log(res);
         
@@ -32,11 +32,23 @@ async function getFood() {
         var dinner_img = "https://spoonacular.com/recipeImages/" + food[2]["id"] + "-" + "556x370" + ".jpg";
 
         
-        //ingredients
-        var ingr = "https://api.spoonacular.com/recipes/" + food[0]["id"] + "/ingredientWidget.json" + "?apiKey=" + api_key;
-        fetch(ingr)
+        //breakfast ingredients
+        var ingr1 = "https://api.spoonacular.com/recipes/" + food[0]["id"] + "/ingredientWidget.json" + "?apiKey=" + api_key;
+        fetch(ingr1)
         .then(response => response.json())
-        .then(json => setIngr(json))
+        .then(json => setIngrB(json))
+
+        //lunch ingredients
+        var ingr2 = "https://api.spoonacular.com/recipes/" + food[1]["id"] + "/ingredientWidget.json" + "?apiKey=" + api_key;
+        fetch(ingr2)
+        .then(response => response.json())
+        .then(json => setIngrL(json))
+
+        //dinner ingredients
+        var ingr3 = "https://api.spoonacular.com/recipes/" + food[2]["id"] + "/ingredientWidget.json" + "?apiKey=" + api_key;
+        fetch(ingr3)
+        .then(response => response.json())
+        .then(json => setIngrD(json))
         
         document.getElementById("breakfastMeal").textContent = breakfast_title;
         document.getElementById("breakfastCal").textContent = breakfast_cal;
@@ -63,7 +75,7 @@ async function getFood() {
   }
 
   //set ingredients of json object
-  async function setIngr(json) {
+  async function setIngrB(json) {
     console.log(JSON.stringify(json));
     let ingredient_list = "";
     for (let i = 0; i < json['ingredients'].length; i++)
@@ -73,4 +85,28 @@ async function getFood() {
       console.log(obj[i]['name']);
     }
     document.getElementById("breakfastIngr").textContent = ingredient_list;
-}
+  }
+
+  async function setIngrL(json) {
+    console.log(JSON.stringify(json));
+    let ingredient_list = "";
+    for (let i = 0; i < json['ingredients'].length; i++)
+    {
+      let obj = json['ingredients'];
+      ingredient_list += obj[i]['name'] + "\n";
+      console.log(obj[i]['name']);
+    }
+    document.getElementById("lunchIngr").textContent = ingredient_list;
+  }
+
+    async function setIngrD(json) {
+      console.log(JSON.stringify(json));
+      let ingredient_list = "";
+      for (let i = 0; i < json['ingredients'].length; i++)
+      {
+        let obj = json['ingredients'];
+        ingredient_list += obj[i]['name'] + "\n";
+        console.log(obj[i]['name']);
+      }
+      document.getElementById("dinnerIngr").textContent = ingredient_list;
+    }
