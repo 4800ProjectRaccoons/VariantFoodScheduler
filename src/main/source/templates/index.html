@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
         <title>The Variant Food Scheduler</title>     
         <meta name="description" content="Variant Food Scheduler automatically creates custom meal plans for your diet goals.">      
@@ -39,6 +40,7 @@
     </head>
 
 <body>
+
     <script src="../static\js\script.js"></script>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
@@ -653,7 +655,7 @@
         </g> -->
     </svg>
 
-<div class="body-container" style="">
+<div class="body-container">
         
     <div id="top_nav" class="navbar navbar-expand-md navbar-purple">
         <div class="container">
@@ -674,7 +676,6 @@
                     </div>
                     </div>
                 </div>
-    <div id="fill_container" class="layout_shift_spacer tomato_background tomato_background_left"><div>
 <!-- Static navbar -->
 
 <div id="main_container" class="main_view_container"><div>
@@ -723,7 +724,7 @@
                     
                     </label>
                     <div class="col-12 col-sm-9 col-md-6 col-lg-6 col-xl-5">
-                        <input type="checkbox" value="Calories" id="cal_input"> Calories Control
+                        <input type="checkbox" value="Calories" id="cal_input" /> Calories Control
                     </div>
                 </div>
 
@@ -731,9 +732,8 @@
                     <label class="col-12 offset-lg-0 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input" 
                     style="font-size:1rem; color:rgb(211, 156, 56);">
                         Breakfast</label>
-                    </label>
                     <div class="col-12 col-sm-9 col-md-6 col-lg-6 col-xl-5 col-lg-3">
-                        <input type="text" min="0" max="20000" placeholder="???" value="" class="form-control calorie-input text-md-right" id="cal_input1">
+                        <input type="number" min="50" max="1000" step="50" placeholder="???" class="form-control calorie-input text-md-right" id="cal_input1" disabled />
                         <label for="cal_input1" id="cal-input-label1">Calories</label>
                     </div>
                 </div>
@@ -741,9 +741,8 @@
                     <label class="col-12 offset-lg-0 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input" 
                     style="font-size:1rem; color:rgb(186, 101, 105);">
                         Lunch</label>
-                    </label>
                     <div class="col-12 col-sm-9 col-md-6 col-lg-6 col-xl-5">
-                        <input type="text" min="0" max="20000" placeholder="???" value="" class="form-control calorie-input text-md-right" id="cal_input2">
+                        <input type="number" min="50" max="1000" step="50" placeholder="???" class="form-control calorie-input text-md-right" id="cal_input2" disabled />
                         <label for="cal_input2" id="cal-input-label2">Calories</label>
                     </div>
                 </div>
@@ -751,12 +750,22 @@
                     <label class="col-12 offset-lg-0 col-sm-3 col-md-4 col-lg-5 text-sm-right col-form-label" for="cal_input" 
                     style="font-size:1rem; color:rgb(87, 163, 214);">
                         Dinner</label>
-                    </label>
                     <div class="col-10 col-sm-9 col-md-6 col-lg-6 col-xl-5">
-                        <input type="text" min="0" max="20000" placeholder="???" value="" class="form-control calorie-input text-md-right" id="cal_input3">
+                        <input type="number" min="50" max="1000" step="50" placeholder="???" class="form-control calorie-input text-md-right" id="cal_input3" disabled />
                         <label for="cal_input3" id="cal-input-label3">Calories</label>
                     </div>
                 </div>
+
+                
+                <script>
+                    document.getElementById('cal_input').onchange = function() {
+                    document.getElementById('cal_input1').disabled = !this.checked;
+                    document.getElementById('cal_input2').disabled = !this.checked;
+                    document.getElementById("cal_input3").disabled = !this.checked;
+                    document.getElementById('cal_input1').value = ''
+                    };
+                    </script>
+    
                 
       
                 <div class="preset_selector_div">
@@ -877,174 +886,13 @@
                     <text id="dinnerMeal">Dinner meals</text>
                     <text id="dinnerCal"></text>
                     <img id="dinnerImg">
-                    <text id="dinnerIngr"></text>
-                    
+                    <text id="dinnerIngr"></text>                    
                 </div>
             </div>
          </div>
-  
-        <div class="auto_generator_div" style="display: none">
-            <div class="row form-group loading-text">
-                <div class="col-12">
-                    <h4>Generating your meal plan...</h4>
-                </div>
-                <div class="col-12">
-                    <svg class="etm-icon etm-icon-md">
-                        <use xlink:href="#hungry-puck-loader"></use>
-                    </svg>
-                    <span class="insert-loading-text"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row expand_header_buttons text-center">
-            <div class="col-12">
-                <a href="javascript:void(0);" class="orange_link change_options" style="font-size: 1.25rem;">Want to try
-                    a
-                    different meal plan? Change
-                    your options</a>
-            </div>
-        </div>
-</div>
-        <div class="ml-auto col-auto meal_bar meal_icons">
-                <div class="dropdown-menu meal-actions-dropdown-menu ">
-                    
-                        <a href="javascript:void(0);" class="dropdown-item edit_meal_type">
-                            
-                                <i class="fa fa-gear" aria-hidden="true"></i>
-                            
-                            Edit Lunch's Meal Settings
-                        </a>
-                        <div class="dropdown-divider edit_meal_type_divider"></div>
-                    
-                        <a class="dropdown-item" href="https://www.eatthismuch.com/user/register-free-account/"><i class="fa fa-user-o" aria-hidden="true"></i>
-                            Find restaurant meals and more<br>by creating a free account
-                        </a>
-                </div>
-            </div>      
+        </div>         
         </div>
     </div>
 </div>
-
-
-</div><div class="meal_box meal_container row">
-<div class="meal_blocking_overlay"></div>
-<div class="col-12 col-md-4 offset-md-4 offset-lg-5">
-    <table id="result_table" descript>
-      <tr><th>      </th><th>        </th></tr>
-      <tr>
-      </tr>
-    </table>
-  </div>
-<div class="col-12 meal_header align-items-center">
-    <div class="row">
-        <div class="col-auto">
-            <div class="row">
-                <div class="col-auto text-dark-gray text-large text-strong print_meal_title wrap_or_truncate pr-0">         </div>
-            </div>
-            <div class="row">
-                <div class="col-auto meal_stats"><div>
-<span class="cal_amount text-small text-light-gray" data-original-title="" title="">            </span>
-</div></div>
-            </div>
-
-        </div>
-
-        <div class="ml-auto col-auto meal_bar meal_icons">
-            
-
-            <div class="meal_refresh_btn inline-block" title="Regenerate this meal">
-                <div class="svg-button">
-                    <svg class="etm-icon etm-icon-sm">
-                        <use xlink:href="#icon-refresh3"></use>
-                    </svg>
-                </div>
-            </div>
-
-            <div class="dropdown meal_options_dropdown">
-                <div class="clickable meal_title dropdown-toggle meal_options_dropdown_button" data-toggle="dropdown">
-
-                    <div class="svg-button">
-                        <svg class="etm-icon etm-icon-sm meal-dropdown-icon">
-                            <use xlink:href="#icon-view-more"></use>
-                        </svg>
-                    </div>
-                </div>
-                <div class="dropdown-menu meal-actions-dropdown-menu ">
-                    
-                        <a href="javascript:void(0);" class="dropdown-item edit_meal_type">
-                            
-                                <i class="fa fa-gear" aria-hidden="true"></i>
-                            
-                            Edit Dinner's Meal Settings
-                        </a>
-                        <div class="dropdown-divider edit_meal_type_divider"></div>
-                    
-                        <a class="dropdown-item" href="https://www.eatthismuch.com/user/register-free-account/"><i class="fa fa-user-o" aria-hidden="true"></i>
-                            Find restaurant meals and more<br>by creating a free account
-                        </a>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-
-<div class="meal_content col-12">
-    <div class="row meal_foods_row">
-        <ul class="meal_foods col-12 collection-list ui-sortable" tabindex="0"><li class="not-sortable" style="background: transparent; border: none; box-shadow: none;"><var class="empty-list-caption"><div class="row"><div class="col-12 text-light-gray text-small empty_meal_box"><div class="text-label text-strong pb-2"></div>                                                                                 <i class="fa fa-refresh"></i>                <a style="font-size: 12px;display: block;" target="_blank" href="https://eatthismuch.groovehq.com/knowledge_base/topics/why-is-the-generator-leaving-some-of-my-meals-empty">                                                                </a></div></div></var></li></ul>
-    </div>
-</div>
-
-<div class="col-12 meal_note "></div>
-
-</div><div class="meal_box meal_container row">
-<div class="meal_blocking_overlay"></div>
-<div class="col-12 meal_header align-items-center">
-    <div class="row">
-        <div class="col-auto">
-            <div class="row">
-                <div class="col-auto text-dark-gray text-large text-strong print_meal_title wrap_or_truncate pr-0">          </div>
-            </div>
-            <div class="row">
-                <div class="col-auto meal_stats"><div>
-<span class="cal_amount text-small text-light-gray" data-original-title="" title="">               </span>
-</div></div>
-            </div>
-        </div>
-        <div class="ml-auto col-auto meal_bar meal_icons">
-            <div class="meal_refresh_btn inline-block" title="Regenerate this meal">
-                <div class="svg-button">
-                    <svg class="etm-icon etm-icon-sm">
-                        <use xlink:href="#icon-refresh3"></use>
-                    </svg>
-                </div>
-            </div>
-
-            <div class="dropdown meal_options_dropdown">
-                <div class="clickable meal_title dropdown-toggle meal_options_dropdown_button" data-toggle="dropdown">
-
-                    <div class="svg-button">
-                        <svg class="etm-icon etm-icon-sm meal-dropdown-icon">
-                            <use xlink:href="#icon-view-more"></use>
-                        </svg>
-                    </div>
-                </div>
-                <div class="dropdown-menu meal-actions-dropdown-menu ">
-                    
-                        <a href="javascript:void(0);" class="dropdown-item edit_meal_type">
-                            
-                                <i class="fa fa-gear" aria-hidden="true"></i>
-                            
-                            Edit Snack's Meal Settings
-                        </a>
-                        <div class="dropdown-divider edit_meal_type_divider"></div>
-                    
-                    
-                        <a class="dropdown-item" href="https://www.eatthismuch.com/user/register-free-account/"><i class="fa fa-user-o" aria-hidden="true"></i>
-                            Find restaurant meals and more<br>by creating a free account
-                        </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+</body></html>
