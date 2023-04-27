@@ -8178,6 +8178,9 @@ span.deleteicon {
 .generator_header {
     z-index: 200;
     position: relative;
+    
+              backdrop-filter: blur(14px);
+            background-color: rgba(255, 255, 255, 0.4);
 }
 
 #recurring_food_modal > .modal {
