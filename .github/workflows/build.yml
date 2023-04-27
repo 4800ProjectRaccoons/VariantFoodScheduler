@@ -48,7 +48,9 @@ jobs:
           killall python
           cd VariantFoodScheduler
           # pip install flask-bootstrap
-          git pull --no-commit <remote>
+          git stash
+          git pop
+          git pull
           cd src/main/source
           nohup python main.py > log.txt &
           # As the server using Python Flask waits for user-input (Ctrl - C) to stop running,
