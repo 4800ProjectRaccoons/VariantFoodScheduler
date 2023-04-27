@@ -6,8 +6,8 @@ spoonacular_api_key='1860d9cb5fb5432d894efb7ec63f484b'
 class FoodRecipes():
 
     #Constructor
-    def __init__(self, max_calories = 10000):
-        self.max_calories = max_calories    #default is 10000
+    def __init__(self, max_calories = 1000):
+        self.max_calories = max_calories    #default is 1000
         self.datastore = self.getFoodData()
         self.id = self.getFoodId()
 

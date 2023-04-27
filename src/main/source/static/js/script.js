@@ -1,3 +1,5 @@
+const DEFAULT_CAL = 1000;
+
 async function getFood() {
     var api_key='1860d9cb5fb5432d894efb7ec63f484b';
     
@@ -7,6 +9,16 @@ async function getFood() {
     var input1 = document.querySelector('#cal_input1').value;
     var input2 = document.querySelector('#cal_input2').value;
     var input3 = document.querySelector('#cal_input3').value;
+
+    if(input1 == "") {
+      input1 = DEFAULT_CAL;
+    }
+    if(input2 == "") {
+      input2 = DEFAULT_CAL;
+    }
+    if(input3 == "") {
+      input3 = DEFAULT_CAL;
+    }
 
     console.log("calories: " + input1 + ", " + input2 + ", " + input3);
   
