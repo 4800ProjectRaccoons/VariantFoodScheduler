@@ -1,23 +1,29 @@
-const DEFAULT_CAL = 1000;
+const DEFAULT_CAL_MIN = 100;
+const DEFAULT_CAL_MAX = 1000;
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 async function getFood() {
     var api_key='1860d9cb5fb5432d894efb7ec63f484b';
     
     console.log("Searching for food");
-    // grab input value
 
+    // grab input value
     var input1 = document.querySelector('#cal_input1').value;
     var input2 = document.querySelector('#cal_input2').value;
     var input3 = document.querySelector('#cal_input3').value;
 
+    // if no input value
     if(input1 == "") {
-      input1 = DEFAULT_CAL;
+      input1 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX)
     }
     if(input2 == "") {
-      input2 = DEFAULT_CAL;
+      input2 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX)
     }
     if(input3 == "") {
-      input3 = DEFAULT_CAL;
+      input3 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX)
     }
 
     console.log("calories: " + input1 + ", " + input2 + ", " + input3);
