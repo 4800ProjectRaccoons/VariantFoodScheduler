@@ -16,9 +16,9 @@ def randomize(calories1, calories2, calories3):
   calories1 = float(calories1)
   calories2 = float(calories2)
   calories3 = float(calories3)
-  food1 = FoodRecipes(calories1)
-  food2 = FoodRecipes(calories2)
-  food3 = FoodRecipes(calories3)
+  food1 = FoodRecipes(calories1, "breakfast")
+  food2 = FoodRecipes(calories2, "main course")
+  food3 = FoodRecipes(calories3, "main course")
   res = []
   res.append(food1.datastore)
   res.append(food2.datastore)

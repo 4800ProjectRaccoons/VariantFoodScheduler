@@ -1,13 +1,17 @@
 import random
 import requests
 
-spoonacular_api_key='1860d9cb5fb5432d894efb7ec63f484b'
+#spoonacular_api_key='1860d9cb5fb5432d894efb7ec63f484b'
+spoonacular_api_key='dcc067f01411450e9f000e5af0f832fc'
 
 class FoodRecipes():
 
     #Constructor
-    def __init__(self, max_calories = 1000):
-        self.max_calories = max_calories    #default is 1000
+    def __init__(self, max_calories, type):
+        self.max_calories = max_calories
+        self.type = type
+        self.diet = ""
+        self.intolerances = ""
         self.datastore = self.getFoodData()
         self.id = self.getFoodId()
 
@@ -15,13 +19,26 @@ class FoodRecipes():
         self.minCalorie = int(self.max_calories) - int(self.max_calories) * .10
         return self.minCalorie
     
+    def setDiet(self, _diet):
+        self.diet = _diet
+
+    def setIntolerances(self, _intolerances):
+        self.intolerances = _intolerances
+
     #get random food data
     def getFoodData(self):
-        urlFood = "https://api.spoonacular.com/recipes/findByNutrients"
-        query_params="apiKey=" + spoonacular_api_key + "&maxCalories=" + str(self.max_calories) + "&minCalories=" + str(self.max_calories - 100)
+        urlFood = "https://api.spoonacular.com/recipes/complexSearch"
+
+        query_cal = "&maxCalories=" + str(self.max_calories) + "&minCalories=" + str(self.max_calories - 100)
+        query_diet = "&diet=" + str(self.diet)
+        query_intolerances = "&intolerances=" + str(self.intolerances)
+        query_type = "&type=" + str(self.type)
+
+        query_params = "apiKey=" + spoonacular_api_key + query_cal + query_type + query_diet + query_intolerances
         query = urlFood + "?" + query_params
+
         self.spoonacular_response = requests.get(query)
-        datastore = random.choice(self.spoonacular_response.json())
+        datastore = random.choice(self.spoonacular_response.json()["results"])
         return datastore
     
     #get the id

@@ -39,17 +39,16 @@ async function getFood() {
         var food = JSON.parse(res);
 
         var breakfast_title = food[0]["title"];
-        var breakfast_cal = food[0]["calories"];
-        var breakfast_img = "https://spoonacular.com/recipeImages/" + food[0]["id"] + "-" + "556x370" + ".jpg";
+        var breakfast_cal = Math.ceil(food[0]["nutrition"]["nutrients"][0]["amount"]);
+        var breakfast_img = food[0]["image"];
 
         var lunch_title = food[1]["title"];
-        var lunch_cal = food[1]["calories"];
-        var lunch_img = "https://spoonacular.com/recipeImages/" + food[1]["id"] + "-" + "556x370" + ".jpg";
+        var lunch_cal = Math.ceil(food[1]["nutrition"]["nutrients"][0]["amount"]);
+        var lunch_img = food[1]["image"];
 
         var dinner_title = food[2]["title"];
-        var dinner_cal = food[2]["calories"];
-        var dinner_img = "https://spoonacular.com/recipeImages/" + food[2]["id"] + "-" + "556x370" + ".jpg";
-
+        var dinner_cal = Math.ceil(food[2]["nutrition"]["nutrients"][0]["amount"]);
+        var dinner_img = food[2]["image"];
         
         //breakfast ingredients
         var ingr1 = "https://api.spoonacular.com/recipes/" + food[0]["id"] + "/ingredientWidget.json" + "?apiKey=" + api_key;
