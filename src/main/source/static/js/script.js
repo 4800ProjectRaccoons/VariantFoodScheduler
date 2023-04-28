@@ -1,4 +1,4 @@
-const DEFAULT_CAL_MIN = 100;
+const DEFAULT_CAL_MIN = 300;
 const DEFAULT_CAL_MAX = 1000;
 
 function getRandomInt(min, max) {
@@ -6,9 +6,10 @@ function getRandomInt(min, max) {
 }
 
 async function getFood() {
-    var api_key='1860d9cb5fb5432d894efb7ec63f484b';
-    
-    console.log("Searching for food");
+    var api_key='dcc067f01411450e9f000e5af0f832fc';
+
+    // grab selected diet pattern
+    var dietPattern = document.querySelector('#num_meals_selector').value;
 
     // grab input value
     var input1 = document.querySelector('#cal_input1').value;
@@ -17,22 +18,20 @@ async function getFood() {
 
     // if no input value
     if(input1 == "") {
-      input1 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX)
+      input1 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX);
     }
     if(input2 == "") {
-      input2 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX)
+      input2 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX);
     }
     if(input3 == "") {
-      input3 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX)
+      input3 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX);
     }
-
-    console.log("calories: " + input1 + ", " + input2 + ", " + input3);
   
     // call the search server and get the result
     $.ajax({
-      //url: "http://127.0.0.1:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
+      //url: "http://127.0.0.1:8080/randomize/" + dietPattern + '/' + input1 + '/' + input2 + '/' + input3,
       //url: "http://ec2-3-128-204-114.us-east-2.compute.amazonaws.com:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
-      url: "/randomize/" + input1 + '/' + input2 + '/' + input3,
+      url: "/randomize/" + dietPattern + '/' + input1 + '/' + input2 + '/' + input3,
       success: function(res) {
         console.log(res);
         

@@ -11,14 +11,14 @@ Bootstrap(app)
 def homepage():
   return render_template("index.html")
 
-@app.route("/randomize/<calories1>/<calories2>/<calories3>")
-def randomize(calories1, calories2, calories3):
+@app.route("/randomize/<diet>/<calories1>/<calories2>/<calories3>")
+def randomize(diet, calories1, calories2, calories3):
   calories1 = float(calories1)
   calories2 = float(calories2)
   calories3 = float(calories3)
-  food1 = FoodRecipes(calories1, "breakfast")
-  food2 = FoodRecipes(calories2, "main course")
-  food3 = FoodRecipes(calories3, "main course")
+  food1 = FoodRecipes(calories1, "breakfast", diet)
+  food2 = FoodRecipes(calories2, "main course", diet)
+  food3 = FoodRecipes(calories3, "main course", diet)
   res = []
   res.append(food1.datastore)
   res.append(food2.datastore)
