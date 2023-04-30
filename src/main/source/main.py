@@ -23,6 +23,7 @@ def randomize(diet, calories1, calories2, calories3):
   res.append(food1.datastore)
   res.append(food2.datastore)
   res.append(food3.datastore)
+  print(res)
   return json.dumps(res)
 
 app.run(host = "0.0.0.0", port = 8080)

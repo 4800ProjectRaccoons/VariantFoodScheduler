@@ -30,6 +30,9 @@ class FoodRecipes():
         query_diet = "&diet=" + str(self.diet)
         query_type = "&type=" + str(self.type)
 
+        if self.max_calories == 0:
+            query_cal = "&addRecipeNutrition=true"
+
         if self.diet == 0:
             query_diet = ""
 
@@ -37,6 +40,7 @@ class FoodRecipes():
         query = urlFood + "?" + query_params
 
         self.spoonacular_response = requests.get(query)
+
         datastore = random.choice(self.spoonacular_response.json()["results"])
         return datastore
     

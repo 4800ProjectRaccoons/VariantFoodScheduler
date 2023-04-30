@@ -1,9 +1,4 @@
-const DEFAULT_CAL_MIN = 300;
-const DEFAULT_CAL_MAX = 1000;
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+const IMG_STYLE = "height: 200px; width: auto; border-radius: 10%;"
 
 async function getFood() {
     var api_key='dcc067f01411450e9f000e5af0f832fc';
@@ -18,36 +13,42 @@ async function getFood() {
 
     // if no input value
     if(input1 == "") {
-      input1 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX);
+      input1 = 0;
     }
     if(input2 == "") {
-      input2 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX);
+      input2 = 0;
     }
     if(input3 == "") {
-      input3 = getRandomInt(DEFAULT_CAL_MIN, DEFAULT_CAL_MAX);
+      input3 = 0;
     }
   
     // call the search server and get the result
     $.ajax({
-      //url: "http://127.0.0.1:8080/randomize/" + dietPattern + '/' + input1 + '/' + input2 + '/' + input3,
-      //url: "http://ec2-3-128-204-114.us-east-2.compute.amazonaws.com:8080/randomize/" + input1 + '/' + input2 + '/' + input3,
       url: "/randomize/" + dietPattern + '/' + input1 + '/' + input2 + '/' + input3,
       success: function(res) {
         console.log(res);
+        const food = JSON.parse(res);
         
-        var food = JSON.parse(res);
+        // variables that hold nutrients data
+        const breakfast_nutrients = food[0].nutrition.nutrients;
+        const lunch_nutrients = food[1].nutrition.nutrients;
+        const dinner_nutrients = food[2].nutrition.nutrients;
+        const [breakfast_macros, lunch_macros, dinner_macros] = [[],[],[]];
 
-        var breakfast_title = food[0]["title"];
-        var breakfast_cal = Math.ceil(food[0]["nutrition"]["nutrients"][0]["amount"]);
-        var breakfast_img = food[0]["image"];
+        // breakfast info
+        const breakfast_title = food[0]["title"];
+        const breakfast_img = food[0]["image"];
+        extractMacros(breakfast_nutrients, breakfast_macros);
 
-        var lunch_title = food[1]["title"];
-        var lunch_cal = Math.ceil(food[1]["nutrition"]["nutrients"][0]["amount"]);
-        var lunch_img = food[1]["image"];
+        // lunch info
+        const lunch_title = food[1]["title"];
+        const lunch_img = food[1]["image"];
+        extractMacros(lunch_nutrients, lunch_macros);
 
-        var dinner_title = food[2]["title"];
-        var dinner_cal = Math.ceil(food[2]["nutrition"]["nutrients"][0]["amount"]);
-        var dinner_img = food[2]["image"];
+        // dinner info
+        const dinner_title = food[2]["title"];
+        const dinner_img = food[2]["image"];
+        extractMacros(dinner_nutrients, dinner_macros)
         
         //breakfast ingredients
         var ingr1 = "https://api.spoonacular.com/recipes/" + food[0]["id"] + "/ingredientWidget.json" + "?apiKey=" + api_key;
@@ -67,29 +68,54 @@ async function getFood() {
         .then(response => response.json())
         .then(json => setIngrD(json))
         
+        // render results
         document.getElementById("breakfastMeal").textContent = breakfast_title;
-        document.getElementById("breakfastCal").textContent = breakfast_cal;
+        document.getElementById("breakfastCal").textContent = breakfast_macros[0];
+        document.getElementById("breakfastFat").textContent = breakfast_macros[1];
+        document.getElementById("breakfastCarbs").textContent = breakfast_macros[2];
+        document.getElementById("breakfastProtein").textContent = breakfast_macros[3];
         document.getElementById("breakfastImg").src = breakfast_img;
-        document.getElementById("breakfastImg").style = "height: 200px; width: auto;";
+        document.getElementById("breakfastImg").class = "rounded-image";
+        document.getElementById("breakfastImg").style = IMG_STYLE;
 
         document.getElementById("lunchMeal").textContent = lunch_title;
-        document.getElementById("lunchCal").textContent = lunch_cal;
+        document.getElementById("lunchCal").textContent = lunch_macros[0];
+        document.getElementById("lunchFat").textContent = lunch_macros[1];
+        document.getElementById("lunchCarbs").textContent = lunch_macros[2];
+        document.getElementById("lunchProtein").textContent = lunch_macros[3];
         document.getElementById("lunchImg").src = lunch_img;
-        document.getElementById("lunchImg").style = "height: 200px; width: auto;";
+        document.getElementById("lunchImg").class = "rounded-image";
+        document.getElementById("lunchImg").style = IMG_STYLE;
 
         document.getElementById("dinnerMeal").textContent = dinner_title;
-        document.getElementById("dinnerCal").textContent = dinner_cal;
+        document.getElementById("dinnerCal").textContent = dinner_macros[0];
+        document.getElementById("dinnerFat").textContent = dinner_macros[1];
+        document.getElementById("dinnerCarbs").textContent = dinner_macros[2];
+        document.getElementById("dinnerProtein").textContent = dinner_macros[3];
         document.getElementById("dinnerImg").src = dinner_img;
-        document.getElementById("dinnerImg").style = "height: 200px; width: auto;";
+        document.getElementById("dinnerImg").class = "rounded-image";
+        document.getElementById("dinnerImg").style = IMG_STYLE;
 
-        // render the result in the list
-  
       },
       error: function(error) {
         console.log(error.Message);
       }
-    });
-  }
+  });
+}
+
+function extractMacros(nutrients, macros) {
+  nutrients.forEach(nutrient => {
+    if (nutrient.name === 'Calories') {
+      macros[0] = "Calories: " + nutrient.amount.toFixed(2) + ' ' + nutrient.unit
+    } else if (nutrient.name === 'Fat') {
+      macros[1] = "Fat: " + nutrient.amount.toFixed(2) + ' ' + nutrient.unit
+    } else if (nutrient.name === 'Carbohydrates') {
+      macros[2] = "Carbohydrates: " + nutrient.amount.toFixed(2) + ' ' + nutrient.unit
+    } else if (nutrient.name === 'Protein') {
+      macros[3] = "Protein: " + nutrient.amount.toFixed(2) + ' ' + nutrient.unit
+    }
+  })
+}
 
   //set ingredients of json object
   async function setIngrB(json) {
@@ -127,3 +153,4 @@ async function getFood() {
       }
       document.getElementById("dinnerIngr").textContent = ingredient_list;
     }
+
