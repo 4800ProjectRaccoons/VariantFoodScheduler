@@ -120,11 +120,11 @@ function extractMacros(nutrients, macros) {
   //set ingredients of json object
   async function setIngrB(json) {
     console.log(JSON.stringify(json));
-    let ingredient_list = "";
+    let ingredient_list = "Ingredients: ";
     for (let i = 0; i < json['ingredients'].length; i++)
     {
       let obj = json['ingredients'];
-      ingredient_list += obj[i]['name'] + "\n";
+      ingredient_list += obj[i]['name'] + ", ";
       console.log(obj[i]['name']);
     }
     document.getElementById("breakfastIngr").textContent = ingredient_list;
@@ -132,11 +132,11 @@ function extractMacros(nutrients, macros) {
 
   async function setIngrL(json) {
     console.log(JSON.stringify(json));
-    let ingredient_list = "";
+    let ingredient_list = "Ingredients: ";
     for (let i = 0; i < json['ingredients'].length; i++)
     {
       let obj = json['ingredients'];
-      ingredient_list += obj[i]['name'] + "\n";
+      ingredient_list += obj[i]['name'] + ", ";
       console.log(obj[i]['name']);
     }
     document.getElementById("lunchIngr").textContent = ingredient_list;
@@ -144,11 +144,11 @@ function extractMacros(nutrients, macros) {
 
     async function setIngrD(json) {
       console.log(JSON.stringify(json));
-      let ingredient_list = "";
+      let ingredient_list = "Ingredients: ";
       for (let i = 0; i < json['ingredients'].length; i++)
       {
         let obj = json['ingredients'];
-        ingredient_list += obj[i]['name'] + "\n";
+        ingredient_list += obj[i]['name'] + ", ";
         console.log(obj[i]['name']);
       }
       document.getElementById("dinnerIngr").textContent = ingredient_list;
