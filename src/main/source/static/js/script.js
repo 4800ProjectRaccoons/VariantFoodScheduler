@@ -1,7 +1,7 @@
 const IMG_STYLE = "height: 200px; width: auto; border-radius: 10%;"
 
 async function getFood() {
-    var api_key='dcc067f01411450e9f000e5af0f832fc';
+    const api_key='dcc067f01411450e9f000e5af0f832fc';
 
     // grab selected diet pattern
     var dietPattern = document.querySelector('#num_meals_selector').value;
@@ -10,6 +10,16 @@ async function getFood() {
     var input1 = document.querySelector('#cal_input1').value;
     var input2 = document.querySelector('#cal_input2').value;
     var input3 = document.querySelector('#cal_input3').value;
+
+    // grab unwanted ingredients
+    var intolerances = "";
+    const intolerances_checkboxes = document.querySelectorAll('input[type="checkbox"].intolerances');
+
+    intolerances_checkboxes.forEach((checkbox) => {
+      if(checkbox.checked) {
+        intolerances += (checkbox.value + ',');
+      }
+    })
 
     // if no input value
     if(input1 == "") {
@@ -21,10 +31,13 @@ async function getFood() {
     if(input3 == "") {
       input3 = 0;
     }
+    if(intolerances == "") {
+      intolerances = "none";
+    }
   
     // call the search server and get the result
     $.ajax({
-      url: "/randomize/" + dietPattern + '/' + input1 + '/' + input2 + '/' + input3,
+      url: "/randomize/" + dietPattern + '/' + input1 + '/' + input2 + '/' + input3 + '/' + intolerances,
       success: function(res) {
         console.log(res);
         const food = JSON.parse(res);

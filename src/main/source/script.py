@@ -7,11 +7,11 @@ spoonacular_api_key='8a2108e9f2824129b62849bbf5d70987'
 class FoodRecipes():
 
     #Constructor
-    def __init__(self, max_calories, type, diet):
+    def __init__(self, max_calories, type, diet, intolerances):
         self.max_calories = max_calories
         self.type = type
         self.diet = diet
-        self.intolerances = ""
+        self.intolerances = intolerances
         self.datastore = self.getFoodData()
         self.id = self.getFoodId()
 
@@ -29,15 +29,21 @@ class FoodRecipes():
         query_cal = "&maxCalories=" + str(self.max_calories) + "&minCalories=" + str(self.max_calories - 100)
         query_diet = "&diet=" + str(self.diet)
         query_type = "&type=" + str(self.type)
+        query_intolerances = "&intolerances=" + str(self.intolerances)
 
         if self.max_calories == 0:
             query_cal = "&addRecipeNutrition=true"
 
         if self.diet == 0:
             query_diet = ""
+        
+        if self.intolerances == "none":
+            query_intolerances = ""
 
-        query_params = "apiKey=" + spoonacular_api_key + query_cal + query_type + query_diet
+        query_params = "apiKey=" + spoonacular_api_key + query_cal + query_type + query_diet + query_intolerances
         query = urlFood + "?" + query_params
+
+        print(query)
 
         self.spoonacular_response = requests.get(query)
 
