@@ -4,7 +4,7 @@ async function getFood() {
     const api_key='1860d9cb5fb5432d894efb7ec63f484b';
 
     // grab selected diet pattern
-    var dietPattern = document.getElementById('#num_meals_selector').value;
+    var dietPattern = document.querySelector('#num_meals_selector').value;
 
     // grab input value
     var input1 = document.querySelector('#cal_input1').value;
