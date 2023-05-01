@@ -1,7 +1,7 @@
 const IMG_STYLE = "height: 200px; width: auto; border-radius: 10%;"
 
 async function getFood() {
-    const api_key='dcc067f01411450e9f000e5af0f832fc';
+    const api_key='1860d9cb5fb5432d894efb7ec63f484b';
 
     // grab selected diet pattern
     var dietPattern = document.querySelector('#num_meals_selector').value;

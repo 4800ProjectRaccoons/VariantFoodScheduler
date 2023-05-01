@@ -1,8 +1,9 @@
 import random
 import requests
 
-spoonacular_api_key='8a2108e9f2824129b62849bbf5d70987'
+#spoonacular_api_key='8a2108e9f2824129b62849bbf5d70987'
 #spoonacular_api_key='dcc067f01411450e9f000e5af0f832fc'
+spoonacular_api_key='1860d9cb5fb5432d894efb7ec63f484b'
 
 class FoodRecipes():
 
@@ -32,7 +33,7 @@ class FoodRecipes():
         query_intolerances = "&intolerances=" + str(self.intolerances)
 
         if self.max_calories == 0:
-            query_cal = "&addRecipeNutrition=true"
+            query_cal = ""
 
         if self.diet == 0:
             query_diet = ""
@@ -40,7 +41,7 @@ class FoodRecipes():
         if self.intolerances == "none":
             query_intolerances = ""
 
-        query_params = "apiKey=" + spoonacular_api_key + query_cal + query_type + query_diet + query_intolerances
+        query_params = "apiKey=" + spoonacular_api_key + query_cal + query_type + query_diet + query_intolerances + "&addRecipeNutrition=true"
         query = urlFood + "?" + query_params
 
         print(query)
