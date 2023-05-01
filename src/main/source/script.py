@@ -36,12 +36,12 @@ class FoodRecipes():
             query_cal = ""
 
         if self.diet == 0:
-            query_diet = ""
+            query_diet = "&addRecipeNutrition=true"
         
         if self.intolerances == "none":
             query_intolerances = ""
 
-        query_params = "apiKey=" + spoonacular_api_key + query_cal + query_type + query_diet + query_intolerances + "&addRecipeNutrition=true"
+        query_params = "apiKey=" + spoonacular_api_key + query_cal + query_type + query_diet + query_intolerances
         query = urlFood + "?" + query_params
 
         print(query)
