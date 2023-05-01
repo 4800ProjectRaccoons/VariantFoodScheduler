@@ -1,8 +1,8 @@
 import random
 import requests
 
-#spoonacular_api_key='8a2108e9f2824129b62849bbf5d70987'
-spoonacular_api_key='dcc067f01411450e9f000e5af0f832fc'
+spoonacular_api_key='8a2108e9f2824129b62849bbf5d70987'
+#spoonacular_api_key='dcc067f01411450e9f000e5af0f832fc'
 #spoonacular_api_key='1860d9cb5fb5432d894efb7ec63f484b'
 
 class FoodRecipes():
@@ -27,7 +27,7 @@ class FoodRecipes():
     def getFoodData(self):
         urlFood = "https://api.spoonacular.com/recipes/complexSearch"
 
-        query_cal = "&maxCalories=" + str(self.max_calories) + "&minCalories=" + str(self.max_calories - 100)
+        query_cal = "&maxCalories=" + str(self.max_calories)
         query_diet = "&diet=" + str(self.diet)
         query_type = "&type=" + str(self.type)
         query_intolerances = "&intolerances=" + str(self.intolerances)
