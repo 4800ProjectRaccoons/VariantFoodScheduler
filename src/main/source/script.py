@@ -1,8 +1,8 @@
 import random
 import requests
 
-spoonacular_api_key='8a2108e9f2824129b62849bbf5d70987'
-#spoonacular_api_key='dcc067f01411450e9f000e5af0f832fc'
+#spoonacular_api_key='8a2108e9f2824129b62849bbf5d70987'
+spoonacular_api_key='dcc067f01411450e9f000e5af0f832fc'
 #spoonacular_api_key='1860d9cb5fb5432d894efb7ec63f484b'
 
 class FoodRecipes():
